@@ -1,3 +1,9 @@
+/**
+ * TODO : 
+ * method size
+ * implement Iterable
+ */
+
 export default class LinkedList {
   constructor () {
     this._first = null;

@@ -1,0 +1,11 @@
+{
+  "extends": "standard",
+  "parser": "babel-eslint",
+  "plugins": ["jest"],
+  "env": {
+    "jest/globals": true
+  },
+  "rules": {
+    "semi": ["error", "always"]
+  }
+}

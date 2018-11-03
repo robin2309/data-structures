@@ -1,21 +1,19 @@
-/**
- * TODO : 
- * method size
- * implement Iterable
- */
+// @ts-check
 
 export default class LinkedList {
   constructor () {
+    /** @type {{next: object, value: object}} */
     this._first = null;
+    /** @type {{next: object, value: object}} */
     this._last = null;
   }
 
   get first () {
-    return (this._first || {}).value || null;
+    return this._first ? this._first.value : null;
   }
 
   get last () {
-    return (this._last || {}).value || null;
+    return this._first ? this._last.value : null;
   }
 
   add (element) {
@@ -34,6 +32,20 @@ export default class LinkedList {
   }
 
   size () {
+    let counter = 0;
+    // eslint-disable-next-line no-unused-vars
+    for (let element of this) counter++;
+    return counter;
+  }
 
+  * [Symbol.iterator] () {
+    let current = this._first;
+    if (current) {
+      yield current.value;
+      while (current.next) {
+        current = current.next;
+        yield current.value;
+      }
+    }
   }
 }

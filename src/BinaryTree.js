@@ -15,6 +15,12 @@ class Node {
   }
 };
 
+// TODO
+// create from array
+// search
+// insert
+// remove?
+
 export default class Tree {
   constructor (rootValue) {
     /** @type {Node} */

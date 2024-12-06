@@ -1,6 +1,9 @@
 // @ts-check
 
 export default class LinkedList {
+  private _first: any;
+  private _last: any;
+
   constructor () {
     /** @type {{next: object, value: object}} */
     this._first = null;
@@ -16,7 +19,7 @@ export default class LinkedList {
     return this._first ? this._last.value : null;
   }
 
-  add (element) {
+  add (element: any) {
     const elementToAdd = {
       value: element,
       next: null

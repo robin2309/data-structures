@@ -1,7 +1,11 @@
 // @ts-check
 
 class Node {
-  constructor (value) {
+  private _left: null;
+  private _right: null;
+  private _value: any;
+
+  constructor (value: any) {
     /** @type {Node} */
     this._left = null;
     /** @type {Node} */
@@ -22,7 +26,9 @@ class Node {
 // remove?
 
 export default class Tree {
-  constructor (rootValue) {
+  private _root: Node;
+
+  constructor (rootValue: any) {
     /** @type {Node} */
     this._root = new Node(rootValue);
   }

@@ -4,17 +4,17 @@ describe('Set', () => {
   describe('constructor', () => {
     it('should instanciate an empty set when no elements to constructor', () => {
       const newSet = new Set();
-      expect(newSet._elements).toEqual([]);
+      expect(newSet.elements).toEqual([]);
     });
 
     it('should instanciate an array set when array passed to constructor', () => {
       const newSet = new Set([1, 2, 3, 4, 5]);
-      expect(newSet._elements).toEqual([1, 2, 3, 4, 5]);
+      expect(newSet.elements).toEqual([1, 2, 3, 4, 5]);
     });
 
     it('should instanciate a set with one element array  when object passed to constructor', () => {
       const newSet = new Set('test');
-      expect(newSet._elements).toEqual(['test']);
+      expect(newSet.elements).toEqual(['test']);
     });
   });
 
@@ -50,14 +50,14 @@ describe('Set', () => {
       const newSet = new Set();
       const element = 'toAdd';
       newSet.add(element);
-      expect(newSet._elements).toEqual([element]);
+      expect(newSet.elements).toEqual([element]);
     });
 
     it('should not add to Set if already exists', () => {
       const element = 'toAdd';
       const newSet = new Set(element);
       newSet.add(element);
-      expect(newSet._elements).toEqual([element]);
+      expect(newSet.elements).toEqual([element]);
     });
   });
 
@@ -69,7 +69,7 @@ describe('Set', () => {
         .add(2)
         .add(3);
       expect(newSet.delete(3)).toEqual(true);
-      expect(newSet._elements).toEqual([1, 2]);
+      expect(newSet.elements).toEqual([1, 2]);
     });
 
     it('should not delete if element does not exist', () => {

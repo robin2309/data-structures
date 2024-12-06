@@ -9,15 +9,18 @@
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^29.7.0",
     "eslint": "^5.8.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -26,16 +29,8 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "jasmine-reporters": "^2.3.2",
-    "jest": "^23.6.0"
-  },
-  "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/test/setup-jasmine-env.js",
-    "testEnvironment": "node",
-    "testMatch": [
-      "<rootDir>/**/*.test.js"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ]
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
   }
 }

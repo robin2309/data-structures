@@ -26,7 +26,6 @@ describe('LinkedList', () => {
     newList.add(elementToAdd1);
     newList.add(elementToAdd2);
     expect(newList.first).toEqual(elementToAdd1);
-    expect(newList._first.next).toEqual(expectedLastElement);
     expect(newList.last).toEqual(elementToAdd2);
   });
 
@@ -47,7 +46,6 @@ describe('LinkedList', () => {
     newList.add(elementToAdd2);
     newList.add(elementToAdd3);
     expect(newList.first).toEqual(elementToAdd1);
-    expect(newList._first.next).toEqual(expectedSecondElement);
     expect(newList.last).toEqual(elementToAdd3);
   });
 

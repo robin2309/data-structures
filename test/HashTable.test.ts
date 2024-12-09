@@ -80,4 +80,15 @@ describe('HashTable', () => {
       expect(newHash.get(key)).toEqual(value);
     });
   });
+  
+  describe('delete method', () => {
+    it('should delete the matching value if it contains it', () => {
+      const newHash = new HashTable();
+      const key = 'testKey';
+      const value = 'testValue';
+      newHash.insert(key, value);
+      newHash.delete(key);
+      expect(newHash.get(key)).toEqual(null);
+    });
+  });
 });

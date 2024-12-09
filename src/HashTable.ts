@@ -56,4 +56,14 @@ export default class HashTable {
     const matchingKey = this._hashFunction(key);
     return this._table[matchingKey] || null;
   }
+  
+  /**
+   * delete a key and its value
+   * @param {string} key the key to compute the hash from
+   * @returns {string} the mapped value
+   */
+  delete (key: string) {
+    const matchingKey = this._hashFunction(key);
+    this._table[matchingKey] = undefined;
+  }
 };

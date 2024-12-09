@@ -43,8 +43,6 @@ export default class BinarySearchTree {
       return false;
     }
 
-    console.log(node.value);
-
     if (node.value === value) {
       return true;
     }

@@ -1,88 +1,36 @@
 import LinkedList from '../src/LinkedList';
 
 describe('LinkedList', () => {
-  it('should first and last be null when instantianted', () => {
-    const newList = new LinkedList();
-    expect(newList.first).toBeNull();
-    expect(newList.last).toBeNull();
-  });
-
-  it('should add one element', () => {
-    const newList = new LinkedList();
-    const elementToAdd = 'first elt';
-    newList.add(elementToAdd);
-    expect(newList.first).toEqual(elementToAdd);
-    expect(newList.last).toEqual(elementToAdd);
-  });
-
   it('should add 2 elements', () => {
     const newList = new LinkedList();
-    const elementToAdd1 = 'first elt';
-    const elementToAdd2 = 'second elt';
-    const expectedLastElement = {
-      value: elementToAdd2,
-      next: null
-    };
-    newList.add(elementToAdd1);
-    newList.add(elementToAdd2);
-    expect(newList.first).toEqual(elementToAdd1);
-    expect(newList.last).toEqual(elementToAdd2);
+    newList.add(1);
+    newList.add(2);
+    expect(newList.head!.value).toEqual(1);
+    expect(newList.head!.next!.value).toEqual(2);
+  });
+  
+  it('finds the added elements', () => {
+    const newList = new LinkedList();
+    newList.add(1);
+    newList.add(2);
+    newList.add(3);
+    newList.add(4);
+    expect(newList.has(1)).toEqual(true);
+    expect(newList.has(3)).toEqual(true);
+    expect(newList.has(4)).toEqual(true);
+    expect(newList.has(10)).toEqual(false);
   });
 
-  it('should add 3 elements', () => {
+  it('deletes the added elements', () => {
     const newList = new LinkedList();
-    const elementToAdd1 = 'first elt';
-    const elementToAdd2 = 'second elt';
-    const elementToAdd3 = 'third elt';
-    const expectedLastElement = {
-      value: elementToAdd3,
-      next: null
-    };
-    const expectedSecondElement = {
-      value: elementToAdd2,
-      next: expectedLastElement
-    };
-    newList.add(elementToAdd1);
-    newList.add(elementToAdd2);
-    newList.add(elementToAdd3);
-    expect(newList.first).toEqual(elementToAdd1);
-    expect(newList.last).toEqual(elementToAdd3);
-  });
-
-  it('should return array of values when spread', () => {
-    const newList = new LinkedList();
-    const elementToAdd1 = 'first elt';
-    const elementToAdd2 = 'second elt';
-    const elementToAdd3 = 'third elt';
-    newList.add(elementToAdd1);
-    newList.add(elementToAdd2);
-    newList.add(elementToAdd3);
-    const values = [
-      elementToAdd1,
-      elementToAdd2,
-      elementToAdd3
-    ];
-    expect([...newList]).toEqual(values);
-  });
-
-  it('should return size 0 when no elements', () => {
-    const newList = new LinkedList();
-    expect(newList.size()).toEqual(0);
-  });
-
-  it('should return size 1 when one element', () => {
-    const newList = new LinkedList();
-    const elementToAdd1 = 'first elt';
-    newList.add(elementToAdd1);
-    expect(newList.size()).toEqual(1);
-  });
-
-  it('should return size 2 when two elements', () => {
-    const newList = new LinkedList();
-    const elementToAdd1 = 'first elt';
-    const elementToAdd2 = 'second elt';
-    newList.add(elementToAdd1);
-    newList.add(elementToAdd2);
-    expect(newList.size()).toEqual(2);
+    newList.add(1);
+    newList.add(2);
+    newList.add(3);
+    newList.add(4);
+    newList.delete(1);
+    expect(newList.head!.value).toEqual(2);
+    newList.delete(3);
+    expect(newList.head!.value).toEqual(2);
+    expect(newList.head!.next!.value).toEqual(4);
   });
 });

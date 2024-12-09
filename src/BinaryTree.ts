@@ -1,45 +1,5 @@
 // @ts-check
-
-class Node {
-  private _left: Node | null;
-  private _right: Node | null;
-  private _value: any;
-
-  constructor (value: any) {
-    /** @type {Node} */
-    this._left = null;
-    /** @type {Node} */
-    this._right = null;
-    /** @type {any} */
-    this._value = value;
-  }
-
-  get value (): any {
-    return this._value;
-  }
-  
-  get left (): Node | null {
-    return this._left;
-  }
-  
-  get right (): Node | null {
-    return this._right;
-  }
-
-  set left(node: Node) {
-    this._left = node;
-  }
-
-  set right(node: Node) {
-    this._right = node;
-  }
-};
-
-// TODO
-// create from array
-// search
-// insert
-// remove?
+import Node from './Node';
 
 export default class BinaryTree {
   private _root: Node | null;
@@ -79,5 +39,29 @@ export default class BinaryTree {
         queue.push(currentNode.right);
       }
     }
+  }
+
+  // depth first, preorder traversal
+  traverseAndFind (node: Node | null, value: any): boolean {
+    if (node === null) {
+      return false;
+    }
+
+    if (node.value === value) {
+      return true;
+    }
+
+    if (this.traverseAndFind(node.left, value)) {
+      return true;
+    }
+
+    if (this.traverseAndFind(node.right, value)) {
+      return true;
+    }
+    return false;
+  }
+
+  has (value: any): boolean {
+    return this.traverseAndFind(this._root, value);
   }
 };
